@@ -26,6 +26,7 @@ const users = [
     { name: "Lazer", isAdmin: false },
     { name: "White Goodman", isAdmin: false },
     { name: "Blazer", isAdmin: false  },
+    { name: "Peppar the Cat", isAdmin: false  },
     { name: "Me'Shell Jones", isAdmin: false  },
     { name: "Fran Stalinovskovichdavidovitchsky", isAdmin: false  }
 ];
