@@ -31,13 +31,12 @@ name: 'Deploy to Cloud Run from Source'
 
 on:
   push:
-    branches:
-      - '"main"'
+    branches: ['main']
 
 env:
-  PROJECT_ID: 'student-001040' # TODO: update to your Google Cloud project ID
+  PROJECT_ID: 'student-001003' # TODO: update to your Google Cloud project ID
   REGION: 'europe-central2' # TODO: update to your region
-  SERVICE: 'ikea-users-app-mtar' # TODO: update to your service name
+  SERVICE: 'ikea-users-app' # TODO: update to your service name
 
 jobs:
   deploy:
@@ -50,21 +49,22 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: 'actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332' # actions/checkout@v4
-  
+      
       - name: Install Dependencies
         working-directory: ./react-frontend
         run: npm install
-
+    
       - name: Build React App
         working-directory: ./react-frontend
         run: npm run build
-      
-        # NOTE: Alternative option - authentication via credentials json
+
+      # NOTE: Alternative option - authentication via credentials json
       - name: Google Auth
         id: auth
         uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      
 
       - name: 'Deploy to Cloud Run'
         uses: 'google-github-actions/deploy-cloudrun@33553064113a37d688aa6937bacbdc481580be17' # google-github-actions/deploy-cloudrun@v2
