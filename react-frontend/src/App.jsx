@@ -44,7 +44,7 @@ const deleteUser = async (e) => {
   }, []);
     return (
     <>
-      <h1>New Userahhh</h1>
+      <h1>New Userahhhaaaddd</h1>
       <form onSubmit={createUser}>
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" />
