@@ -6,7 +6,7 @@ function App() {
   
   const hostUrl = import.meta.env.PROD
     ? window.location.href
-    : "http://localhost:8080/";
+    : "http://localhost:8081/";
   
 
   const fetchUsers = async () => {
